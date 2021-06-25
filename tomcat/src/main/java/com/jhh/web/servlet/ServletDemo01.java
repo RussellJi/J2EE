@@ -1,5 +1,6 @@
 package com.jhh.web.servlet;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.util.Date;
 
@@ -7,6 +8,9 @@ import java.util.Date;
 * servlet快速入门
 *
 * */
+//@WebServlet(urlPatterns="/demo1")
+//@WebServlet(value="/demo1")
+@WebServlet("/demo1")
 public class ServletDemo01 implements Servlet {
     Date date = new Date();
     @Override
