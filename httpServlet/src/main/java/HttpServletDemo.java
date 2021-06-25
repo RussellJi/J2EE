@@ -1,9 +1,14 @@
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Iterator;
+
 
 @WebServlet("/demo")
 public class HttpServletDemo extends HttpServlet {
@@ -28,14 +33,38 @@ public class HttpServletDemo extends HttpServlet {
         System.out.println("协议版本："+req.getProtocol());
         // 获取客户机的IP地址
         System.out.println("客户机IP地址："+req.getRemoteAddr());
+        Enumeration<String> enumeration = req.getHeaderNames();
+        Iterator it = enumeration.asIterator();
+//        while(it.hasNext()){
+//            Object o = it.next();
+//            System.out.print(o+":");
+//            System.out.println(req.getHeader((String) o));
+//        }
+
+        BufferedReader reader = req.getReader();
+        String data = null;
+        while((data = reader.readLine())!=null){
+            System.out.println(data);
+        }
+
     }
-
-
 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doPost(req, resp);
         System.out.println("post");
+//        BufferedReader reader = req.getReader();
+//        String data = null;
+//        while((data = reader.readLine())!=null){
+//            System.out.println(data);
+//        }
+        byte[] bytes = new byte[1024];
+        int dataLen = 0;
+        ServletInputStream is = req.getInputStream();
+        while((dataLen = is.read())!=-1){
+            System.out.println(new String(bytes,0,dataLen));
+        }
+
     }
 }
