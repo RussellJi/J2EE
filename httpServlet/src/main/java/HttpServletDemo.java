@@ -6,8 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Iterator;
+import java.util.*;
 
 
 @WebServlet("/demo")
@@ -34,18 +33,20 @@ public class HttpServletDemo extends HttpServlet {
         // 获取客户机的IP地址
         System.out.println("客户机IP地址："+req.getRemoteAddr());
         Enumeration<String> enumeration = req.getHeaderNames();
-        Iterator it = enumeration.asIterator();
+//        Iterator it = enumeration.asIterator();
 //        while(it.hasNext()){
 //            Object o = it.next();
 //            System.out.print(o+":");
 //            System.out.println(req.getHeader((String) o));
 //        }
-
-        BufferedReader reader = req.getReader();
-        String data = null;
-        while((data = reader.readLine())!=null){
-            System.out.println(data);
+        while(enumeration.hasMoreElements()){
+            String s = enumeration.nextElement();
+            System.out.print(s+":");
+            System.out.println(req.getHeader(s));
         }
+
+
+
 
     }
 
@@ -53,18 +54,47 @@ public class HttpServletDemo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doPost(req, resp);
-        System.out.println("post");
-//        BufferedReader reader = req.getReader();
-//        String data = null;
-//        while((data = reader.readLine())!=null){
-//            System.out.println(data);
-//        }
-        byte[] bytes = new byte[1024];
-        int dataLen = 0;
-        ServletInputStream is = req.getInputStream();
-        while((dataLen = is.read())!=-1){
-            System.out.println(new String(bytes,0,dataLen));
+        System.out.println("Post:");
+        // 表单提交
+        BufferedReader reader = req.getReader();
+//        System.out.println(reader);
+        String data = null;
+        while((data = reader.readLine())!=null){
+            System.out.println(data);
         }
+        System.out.println("-------------------");
+        // postman
+        System.out.println(req.getQueryString());
+//        byte[] bytes = new byte[1024];
+//        int dataLen = 0;
+//        ServletInputStream is = req.getInputStream();
+//        while((dataLen = is.read(bytes))!=-1){
+//            System.out.println(new String(bytes,0,dataLen));
+//        }
+        System.out.println("-------------------");
+        // 获取参数
+        System.out.println(req.getParameter("username"));
+        System.out.println("-------------------");
+        // 获取参数名
+        Enumeration<String> e =  req.getParameterNames();
+        Iterator it = e.asIterator();
+        while(it.hasNext()){
+            Object o = it.next();
+            System.out.print(o+":");
+            System.out.println(req.getParameter((String) o));
+        }
+        // 获取参数值
+//        String[] req.getParameterValues(String var1);
+        // 获取参数键值对
+        System.out.println("键值对：");
+        Map<String, String[]> m =  req.getParameterMap();
+        Set<Map.Entry<String, String[]>> entries = m.entrySet();
+        Iterator it1 = entries.iterator();
+        while(it1.hasNext()){
+            Map.Entry entry = (Map.Entry)it1.next();
+            System.out.println(entry.getKey()+":"+ Arrays.toString((String[])entry.getValue()));
+        }
+
 
     }
 }
