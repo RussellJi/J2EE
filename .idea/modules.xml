@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/J2EE.iml" filepath="$PROJECT_DIR$/.idea/J2EE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/login/login.iml" filepath="$PROJECT_DIR$/login/login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/response/response.iml" filepath="$PROJECT_DIR$/response/response.iml" />
       <module fileurl="file://$PROJECT_DIR$/tomcat/tomcat.iml" filepath="$PROJECT_DIR$/tomcat/tomcat.iml" />
     </modules>
   </component>

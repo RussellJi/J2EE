@@ -10,6 +10,8 @@ import java.util.*;
 public class ParasHttpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //设置流的编码方式
+        req.setCharacterEncoding("utf-8");
         // 1.获取请求参数username的值
         System.out.println(req.getParameter("username"));
         // 2.获取复选框的参数
@@ -30,6 +32,13 @@ public class ParasHttpServlet extends HttpServlet {
         while(it1.hasNext()){
             Map.Entry entry = (Map.Entry)it1.next();
             System.out.println(entry.getKey()+":"+ Arrays.toString((String[])entry.getValue()));
+        }
+
+        Set set = m.keySet();
+        for (Object o : set) {
+            String s = (String)o;
+            System.out.println(s+":"+ Arrays.toString(m.get(s)));
+            System.out.println("------------");
         }
 
 
