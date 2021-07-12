@@ -41,6 +41,12 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>ds2.tools.maven.plugins</groupId>
+            <artifactId>embedded-tomcat8-maven-plugin</artifactId>
+            <version>0.1.2</version>
+            <type>maven-plugin</type>
+        </dependency>
     </dependencies>
 
     <build>
@@ -50,6 +56,15 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.0</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>10</source>
+                    <target>10</target>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 </project>

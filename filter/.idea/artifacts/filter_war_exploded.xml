@@ -11,13 +11,13 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="filter" />
+          <element id="module-output" name="filter&amp;&amp;listener" />
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/filter-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="filter/web/Web" />
+      <element id="javaee-facet-resources" facet="filter&amp;&amp;listener/web/Web" />
     </root>
   </artifact>
 </component>

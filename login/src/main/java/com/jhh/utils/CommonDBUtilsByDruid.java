@@ -19,7 +19,8 @@ public class CommonDBUtilsByDruid {
     static {
         try {
             Properties props = new Properties();
-            props.load(new FileInputStream("F:\\Vscode\\JavaProject\\J2EE\\login\\src\\main\\java\\com\\jhh\\utils\\Druid.properties"));
+            props.load(new FileInputStream("F:\\Vscode\\JavaProject\\J2EE\\login\\src\\main\\webapp\\WEB-INF\\Druid.properties"));
+//            props.load(new FileInputStream("\\WEB-INF\\Druid.properties"));
             ds = DruidDataSourceFactory.createDataSource(props);
         } catch (Exception e) {
             throw new RuntimeException(e);

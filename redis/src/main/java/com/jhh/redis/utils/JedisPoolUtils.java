@@ -16,9 +16,9 @@ public class JedisPoolUtils {
         Properties props = new Properties();
         JedisPoolConfig config = new JedisPoolConfig();
         try {
-            String path = "F:\\Vscode\\JavaProject\\J2EE\\redis\\src\main\webapp\\WEB-INF\\jedis.properties";
+            String path = "F:\\Vscode\\JavaProject\\J2EE\\redis\\src\\main\\webapp\\WEB-INF\\jedis.properties";
 //            InputStream is = JedisPoolUtils.class.getClassLoader().getResourceAsStream("F:\\Vscode\\JavaProject\\J2EE\\redis\\src\\main\\webapp\\WEB-INF\\jedis.properties");
-            props.load(new FileReader("F:\\Vscode\\JavaProject\\J2EE\\redis\\src\main\webapp\\WEB-INF\\jedis.properties"));
+            props.load(new FileReader(path));
 //            props.load(is);
             config.setMaxTotal(Integer.parseInt(props.getProperty("maxTotal")));
             config.setMaxIdle(Integer.parseInt(props.getProperty("maxIdle")));

@@ -1,9 +1,10 @@
+package com.jhh.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebFilter(filterName = "FilterDemo")
+//@WebFilter(value="/index.jsp",filterName = "filter1")
 public class FilterDemo implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
@@ -13,6 +14,6 @@ public class FilterDemo implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-        chain.doFilter(request, response);
+//        chain.doFilter(request, response);
     }
 }

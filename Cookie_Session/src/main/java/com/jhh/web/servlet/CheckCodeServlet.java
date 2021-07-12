@@ -5,10 +5,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -37,13 +38,18 @@ public class CheckCodeServlet extends HttpServlet {
         //生成随机角标
         Random ran = new Random();
 
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= 4; i++) {
             int index = ran.nextInt(str.length());
             //获取字符
             char ch = str.charAt(index);//随机字符
+            sb.append(ch);
             //2.3写验证码
             g.drawString(ch+"",width/5*i,height/2);
         }
+        HttpSession session = req.getSession();
+        session.setAttribute("checkCode", sb.toString());
+        System.out.println(sb);
 
 
         //2.4画干扰线
