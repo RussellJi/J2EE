@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax jquery</title>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function(){
+        $("#btn").click(function(){
+          $.ajax({
+            url:"/AjaxServlet",
+            type: "GET",
+            data: {"username":"纪浩瀚"},
+            success:function(data){
+              $("#p").text(data);
+            }
+
+          })
+        });
+      })
+    </script>
+</head>
+<body>
+    <input type="button" value="发送请求" id="btn">
+    <input type="text">
+    <p id="p"></p>
+</body>
+</html>

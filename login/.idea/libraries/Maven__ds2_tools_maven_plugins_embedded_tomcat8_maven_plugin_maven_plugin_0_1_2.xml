@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: ds2.tools.maven.plugins:embedded-tomcat8-maven-plugin:maven-plugin:0.1.2">
+    <CLASSES>
+      <root url="jar://E:/program files (x86)/apache-maven-3.8.1/mvn_repository/ds2/tools/maven/plugins/embedded-tomcat8-maven-plugin/0.1.2/embedded-tomcat8-maven-plugin-0.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/program files (x86)/apache-maven-3.8.1/mvn_repository/ds2/tools/maven/plugins/embedded-tomcat8-maven-plugin/0.1.2/embedded-tomcat8-maven-plugin-0.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/program files (x86)/apache-maven-3.8.1/mvn_repository/ds2/tools/maven/plugins/embedded-tomcat8-maven-plugin/0.1.2/embedded-tomcat8-maven-plugin-0.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
